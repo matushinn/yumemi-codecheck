@@ -1,14 +1,14 @@
 //
-//  ViewController2.swift
+//  DetailRepoViewController.swift
 //  iOSEngineerCodeCheck
 //
-//  Created by 史 翔新 on 2020/04/21.
-//  Copyright © 2020 YUMEMI Inc. All rights reserved.
+//  Created by 大江祥太郎 on 2021/08/02.
+//  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
 import UIKit
 
-class ViewController2: UIViewController {
+class DetailRepoViewController: UIViewController {
     
     @IBOutlet weak var ImgView: UIImageView!
     
@@ -21,12 +21,13 @@ class ViewController2: UIViewController {
     @IBOutlet weak var FrksLbl: UILabel!
     @IBOutlet weak var IsssLbl: UILabel!
     
-    var vc1: ViewController!
+    var vc1: SearchRepoViewController!
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repo = vc1.repo[vc1.idx]
+        let repo = vc1.repo[vc1.index]
         
         LangLbl.text = "Written in \(repo["language"] as? String ?? "")"
         StrsLbl.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
@@ -39,11 +40,9 @@ class ViewController2: UIViewController {
     
     
     
-    
-    
     func getImage(){
         
-        let repo = vc1.repo[vc1.idx]
+        let repo = vc1.repo[vc1.index]
         
         TtlLbl.text = repo["full_name"] as? String
         
@@ -61,3 +60,4 @@ class ViewController2: UIViewController {
     }
     
 }
+

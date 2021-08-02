@@ -8,15 +8,19 @@
 
 import UIKit
 
-class SearchRepoViewController: UITableViewController, UISearchBarDelegate ,RepositoryManagerDelegate {
+class SearchRepoViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!{
+        didSet {
+            searchBar.placeholder = "リポジトリを検索"
+            searchBar.delegate = self
+        }
+    }
+    
+    @IBOutlet var tableView: UITableView!
     
     var repo: [[String: Any]]=[]
     
-    var task: URLSessionTask?
-    var word: String!
-    var url: String!
     var index: Int!
     
     var repositoryManager = RepositoryManager()
@@ -24,41 +28,8 @@ class SearchRepoViewController: UITableViewController, UISearchBarDelegate ,Repo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
-        searchBar.delegate = self
         
         repositoryManager.delegate = self
-    }
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
-        searchBar.text = ""
-        return true
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        if let repository = searchBar.text {
-            repositoryManager.fetchRepositoory(repositoryName:repository)
-        }
-        
-    }
-    func didUpdateRepository(_ repositoryManager: RepositoryManager, repository: [[String : Any]]) {
-        DispatchQueue.main.async {
-        
-            self.repo = repository
-            // print(self.repo[0]["full_name"])
-            self.tableView.reloadData()
-        }
-    }
-    
-    func didFailWithError(error: Error) {
-        print(error)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,16 +38,20 @@ class SearchRepoViewController: UITableViewController, UISearchBarDelegate ,Repo
             let detailVC = segue.destination as! DetailRepoViewController
             detailVC.vc1 = self
         }
-        
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+}
+
+//MARK: - UITableViewDelegate,UITableViewDataSource
+extension SearchRepoViewController:UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repo.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath)
         let rp = repo[indexPath.row]
     
         if let fullName =  rp["full_name"] as? String{
@@ -92,14 +67,49 @@ class SearchRepoViewController: UITableViewController, UISearchBarDelegate ,Repo
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 画面遷移時に呼ばれる
         index = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
         
     }
-    
 }
 
+//MARK: - UISearchBarDelegate
+extension SearchRepoViewController : UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        // ↓こうすれば初期のテキストを消せる
+        searchBar.text = ""
+        return true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //　テキスト変更中は何も表示させない(初期化)
+        repo = []
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if let repository = searchBar.text {
+            repositoryManager.fetchRepositoory(repositoryName:repository)
+        }
+        
+    }
+}
 
-
+//MARK: - RepositoryManagerDelegate
+extension SearchRepoViewController : RepositoryManagerDelegate {
+    func didUpdateRepository(_ repositoryManager: RepositoryManager, repository: [[String : Any]]) {
+        DispatchQueue.main.async {
+        
+            self.repo = repository
+            // print(self.repo[0]["full_name"])
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}

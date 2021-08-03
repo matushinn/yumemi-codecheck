@@ -8,6 +8,7 @@ target 'iOSEngineerCodeCheck' do
   # Pods for iOSEngineerCodeCheck
   pod 'SwiftyJSON'
   pod 'SDWebImage'
+  pod 'Alamofire'
 
   target 'iOSEngineerCodeCheckTests' do
     inherit! :search_paths

@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0F9D1B4B5C4977191837891A /* Pods_iOSEngineerCodeCheck_iOSEngineerCodeCheckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACDD18A68820613D41B1CA3 /* Pods_iOSEngineerCodeCheck_iOSEngineerCodeCheckUITests.framework */; };
 		13C112EFF7D1018F91C46E6B /* Pods_iOSEngineerCodeCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB924DCE44B360BF26D4CF8 /* Pods_iOSEngineerCodeCheck.framework */; };
+		375CC0BF26B9112C005386B6 /* DetailRepoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CC0BE26B9112C005386B6 /* DetailRepoManager.swift */; };
+		375CC0C126B9153F005386B6 /* DetailRepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CC0C026B9153F005386B6 /* DetailRepoModel.swift */; };
 		379D479926B7D43C001ABA17 /* SearchRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D479826B7D43C001ABA17 /* SearchRepoViewController.swift */; };
 		379D479B26B7D447001ABA17 /* DetailRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D479A26B7D447001ABA17 /* DetailRepoViewController.swift */; };
 		379D479D26B7D665001ABA17 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D479C26B7D665001ABA17 /* RepositoryManager.swift */; };
-		379D479F26B7D9A8001ABA17 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D479E26B7D9A8001ABA17 /* RepositoryModel.swift */; };
-		379D47A126B7DBA6001ABA17 /* RepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D47A026B7DBA6001ABA17 /* RepositoryData.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
 		BFD945E6244DC5E80012785A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E4244DC5E80012785A /* Main.storyboard */; };
@@ -45,11 +45,11 @@
 		06B371C4E2D4FBAD0479AA3E /* Pods-iOSEngineerCodeCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck/Pods-iOSEngineerCodeCheck.release.xcconfig"; sourceTree = "<group>"; };
 		0FB924DCE44B360BF26D4CF8 /* Pods_iOSEngineerCodeCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSEngineerCodeCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D77FB22115A143C431A503C /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig"; sourceTree = "<group>"; };
+		375CC0BE26B9112C005386B6 /* DetailRepoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepoManager.swift; sourceTree = "<group>"; };
+		375CC0C026B9153F005386B6 /* DetailRepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepoModel.swift; sourceTree = "<group>"; };
 		379D479826B7D43C001ABA17 /* SearchRepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoViewController.swift; sourceTree = "<group>"; };
 		379D479A26B7D447001ABA17 /* DetailRepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepoViewController.swift; sourceTree = "<group>"; };
 		379D479C26B7D665001ABA17 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
-		379D479E26B7D9A8001ABA17 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
-		379D47A026B7DBA6001ABA17 /* RepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryData.swift; sourceTree = "<group>"; };
 		3ACDD18A68820613D41B1CA3 /* Pods_iOSEngineerCodeCheck_iOSEngineerCodeCheckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSEngineerCodeCheck_iOSEngineerCodeCheckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67692095941CBFD6E14FE17A /* Pods-iOSEngineerCodeCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck.debug.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck/Pods-iOSEngineerCodeCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		760B52BE9BEE5417148B8824 /* Pods_iOSEngineerCodeCheckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSEngineerCodeCheckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +111,7 @@
 		379D478E26B7D2B3001ABA17 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFD945E4244DC5E80012785A /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				379D479C26B7D665001ABA17 /* RepositoryManager.swift */,
-				379D479E26B7D9A8001ABA17 /* RepositoryModel.swift */,
-				379D47A026B7DBA6001ABA17 /* RepositoryData.swift */,
+				375CC0BE26B9112C005386B6 /* DetailRepoManager.swift */,
+				375CC0C026B9153F005386B6 /* DetailRepoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,7 +166,6 @@
 				379D478D26B7D2AA001ABA17 /* Controller */,
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
@@ -201,7 +201,6 @@
 				CB40241E58CB7376B0916417 /* Pods-iOSEngineerCodeCheckTests.debug.xcconfig */,
 				970395EB0FCBA232961D2435 /* Pods-iOSEngineerCodeCheckTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -445,11 +444,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				379D479D26B7D665001ABA17 /* RepositoryManager.swift in Sources */,
-				379D479F26B7D9A8001ABA17 /* RepositoryModel.swift in Sources */,
 				379D479B26B7D447001ABA17 /* DetailRepoViewController.swift in Sources */,
 				379D479926B7D43C001ABA17 /* SearchRepoViewController.swift in Sources */,
-				379D47A126B7DBA6001ABA17 /* RepositoryData.swift in Sources */,
+				375CC0C126B9153F005386B6 /* DetailRepoModel.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
+				375CC0BF26B9112C005386B6 /* DetailRepoManager.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

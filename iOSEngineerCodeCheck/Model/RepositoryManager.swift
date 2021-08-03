@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol RepositoryManagerDelegate {
     func didUpdateRepository(_ repositoryManager:RepositoryManager,repository:[[String:Any]])
@@ -19,9 +20,6 @@ struct RepositoryManager {
     
     var delegate:RepositoryManagerDelegate?
     
-    var temp: [[String: Any]]=[]
-    
-    
     func fetchRepositoory(repositoryName:String){
         if repositoryName.count != 0 {
             let urlString = "\(repositoryURL)?q=\(repositoryName)"
@@ -33,32 +31,25 @@ struct RepositoryManager {
         
     }
     func performRequest(with urlString:String){
-        //①Create a URL
-        if let url = URL(string: urlString){
-            //②Create a URL Session
-             let session = URLSession(configuration: .default)
-            
-            //③Give the sessin Task
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil {
-                    // print(error!)
-                    self.delegate?.didFailWithError(error: error!)
-                    return
-                }
-                                
-                if let safeData = data {
+        
+        if let url = URL(string: urlString) {
+            AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
+                
+                switch response.result{
+                case .success:
+                    guard let safeData = response.data else{
+                        return
+                    }
                     if let obj = try! JSONSerialization.jsonObject(with: safeData) as? [String: Any] {
                         if let items = obj["items"] as? [[String: Any]] {
                             self.delegate?.didUpdateRepository(self, repository: items)
-                            
                         }
                     }
                     
+                case .failure(_):
+                    break
                 }
             }
-            
-            //④Start the task
-            task.resume()
         }
         
     }

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--検索-->
         <scene sceneID="0Yw-Vc-k2Q">
             <objects>
                 <tableViewController id="MOh-CZ-3ki" customClass="SearchRepoViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,7 +53,7 @@
                             <outlet property="delegate" destination="MOh-CZ-3ki" id="A6Y-Dm-cjQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ktq-eC-ZBq"/>
+                    <navigationItem key="navigationItem" title="検索" id="ktq-eC-ZBq"/>
                     <connections>
                         <outlet property="searchBar" destination="6rq-CD-Hob" id="3gq-mK-4M3"/>
                         <outlet property="tableView" destination="Fpt-Ev-QNW" id="fAh-h0-lE2"/>
@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="-498" y="137"/>
         </scene>
-        <!--Detail Repo View Controller-->
+        <!--詳細-->
         <scene sceneID="JOC-74-7VT">
             <objects>
                 <viewController id="AHY-RL-7mG" customClass="DetailRepoViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
@@ -138,15 +138,15 @@
                             <constraint firstItem="Iim-eb-8Ad" firstAttribute="centerY" secondItem="srK-fe-i1b" secondAttribute="centerY" multiplier="0.7" id="ruB-l0-4VM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
+                    <navigationItem key="navigationItem" title="詳細" id="J6o-vL-S1z"/>
                     <connections>
-                        <outlet property="FrksLbl" destination="ZMv-4f-X2V" id="i84-sH-c5t"/>
-                        <outlet property="ImgView" destination="Iim-eb-8Ad" id="dmH-tP-ZuI"/>
-                        <outlet property="IsssLbl" destination="dzg-K8-h2L" id="L0v-sy-cD4"/>
-                        <outlet property="LangLbl" destination="s3M-QO-Kom" id="x3L-gZ-aZZ"/>
-                        <outlet property="StrsLbl" destination="0WZ-UA-R8O" id="gYb-gI-iMf"/>
-                        <outlet property="TtlLbl" destination="4q1-pG-WSB" id="UQ0-5D-rWe"/>
-                        <outlet property="WchsLbl" destination="lQC-lo-IqN" id="Drg-Jv-iUh"/>
+                        <outlet property="forksCountLabel" destination="ZMv-4f-X2V" id="i84-sH-c5t"/>
+                        <outlet property="issuesCountLabel" destination="dzg-K8-h2L" id="L0v-sy-cD4"/>
+                        <outlet property="languageLabel" destination="s3M-QO-Kom" id="x3L-gZ-aZZ"/>
+                        <outlet property="profileImageView" destination="Iim-eb-8Ad" id="dmH-tP-ZuI"/>
+                        <outlet property="starsCountLabel" destination="0WZ-UA-R8O" id="gYb-gI-iMf"/>
+                        <outlet property="titleLabel" destination="4q1-pG-WSB" id="UQ0-5D-rWe"/>
+                        <outlet property="watchersCountLabel" destination="lQC-lo-IqN" id="Drg-Jv-iUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj0-Ld-RTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

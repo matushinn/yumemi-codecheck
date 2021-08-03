@@ -18,7 +18,6 @@ struct DetailRepoManager {
     
     func setData(index:Int,repos:[[String:Any]]) {
     
-        // print(index)
         let repository = repos[index]
         
         if let lan = repository["language"] as? String,let stars = repository["stargazers_count"] as? Int,let watchers = repository["watchers_count"] as? Int,let forks = repository["forks_count"] as? Int,let issues = repository["open_issues_count"] as? Int,let full = repository["full_name"] as? String,let owner = repository["owner"] as? [String: Any]{
@@ -26,14 +25,12 @@ struct DetailRepoManager {
         
             if let url = owner["avatar_url"] as? String {
                 
+                //構造体にDetailRepoViewControllerに必要な変数をまとめた
                 let detailRepoModel = DetailRepoModel(language: lan, starsCount: stars, watchersCount: watchers, forksCount: forks, issuesCount: issues, fullName: full,owner: owner, urlString: url)
-                // print(detailRepoModel.fullName)
+                
                 self.delegate?.didUpdateDetailRepo(self, detail: detailRepoModel)
                
             }
         }
-        
-        
-    
     }
 }

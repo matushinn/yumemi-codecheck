@@ -6,7 +6,6 @@ target 'iOSEngineerCodeCheck' do
   use_frameworks!
 
   # Pods for iOSEngineerCodeCheck
-  pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'Alamofire'
 

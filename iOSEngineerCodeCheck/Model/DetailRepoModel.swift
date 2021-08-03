@@ -9,6 +9,7 @@
 import Foundation
 
 struct DetailRepoModel {
+    
     let language:String
     let starsCount:Int
     let watchersCount:Int
@@ -17,6 +18,5 @@ struct DetailRepoModel {
     let fullName:String
     let owner:[String:Any]
     let urlString:String
-    
     
 }
